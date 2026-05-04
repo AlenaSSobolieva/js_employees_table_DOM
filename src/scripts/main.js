@@ -1,6 +1,5 @@
 'use strict';
 
-// write code here
 const table = document.querySelector('table');
 const formInputs = [
   {
@@ -44,9 +43,6 @@ const formInputs = [
 ];
 
 const form = document.createElement('form');
-
-form.noValidate = true;
-form.setAttribute('novalidate', '');
 
 form.noValidate = true;
 form.setAttribute('novalidate', '');
@@ -112,16 +108,11 @@ function validateData(obj) {
   }
 
   const trimmedName = obj.name.trim();
-  const trimmedPosition = obj.position.trim();
 
   if (trimmedName.length < 4) {
     notification.classList.add('error');
     errorMsg = 'Name must be at least 4 characters long';
     form.querySelector('[name="name"]').focus();
-  } else if (trimmedPosition.length < 5) {
-    notification.classList.add('error');
-    errorMsg = 'Position must be at least 5 characters long';
-    form.querySelector('[name="position"]').focus();
   } else if (+obj.age < 18 || +obj.age > 90) {
     notification.classList.add('error');
     errorMsg = 'Age must be between 18 and 90';
